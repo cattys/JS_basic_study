@@ -1,0 +1,130 @@
+var는 block scope를 철저히 무시하기에 절대 쓰면 안됨
+
+
+
+var << 선언도 하기전인데 값을 출력할수있음
+
+age=4;
+
+console.log(age)
+
+var age;
+
+let을 쓰면 -> 선언전에 출력하면 error남
+
+
+
+
+
+
+
+
+const의 좋은점﻿
+
+- 보안상 good << 해커들이 값을 바꿀수 없음
+
+- thread safety << 프로세스가 할당되면 여러 쓰레드가 접근해서 값을 바꾸려고 한다.
+
+여러 쓰레드의 접근은 조금 위험할 수 있는데,  얘는 변하지 않아서 위험하지 않음
+
+- human mistakes << 내 실수를 줄일수 있음
+
+
+
+Mutable type >let﻿
+
+Immutable type > const﻿
+
+
+
+
+
+Variable types / data type
+
+
+
+1. primative type, single item: number, string, boolean, null, undefined, symbol
+
+ㄴ 더이상 나눠질수 없는 단위
+
+2. object, box container
+
+ㄴ single item들을 여러개로 묶어서 한 단위로, 한 박스로 관리
+
++3. function,
+
+      First-class function(=function도 변수에 할당 가능하고 parameter로 전달이 된다는뜻)
+
+ㄴ JS 에서는 function도 data type 중 하나임
+
+
+
+Number
+
+number중에서 bigInt가 추가됨
+
+원래 지원되는 숫자 범위보다 더 넓은 숫자 범위가 지원됨(숫자 끝에 n을 붙이면된데)
+
+->크롬, 파폭정도만 지원됨
+
+
+
+String
+
+template literals ` 안녕? {variable} ` 백틱을 사용해 쉽게 변수를 쓰는것
+
+
+
+Boolean true/false
+
+
+
+Undefied 선언만되고 아직 할당되지않음
+
+null 비어있다고 할당해주는것(선언)
+
+
+
+Symbol 
+
+고유한 식별자가 필요하거나,
+
+동시다발적으로 작업이 발생될때, 우선순위를 주고싶으면 주는 식별자
+
+동일한 string을 줘도 다른 symbol로 만들어진데
+
+
+
+ex)
+
+const symbol1 =Symbol('id);
+
+const symbol2 = Symbol('id');
+
+console.log(symbol1 === symbol2);  >> false
+
+
+
+같은 symbol로 만들고 싶으면
+
+const symbol1 =Symbol.for('id);
+
+const symbol2 = Symbol.for('id');
+
+console.log(symbol1 === symbol2);  >> true
+
+
+
+symbol만 출력하고 싶으면
+
+console.log(symbol1.description) 로 description 붙여서 출력해야함
+
+>> id 출력됨
+
+
+
+Dynamic typing 
+
+'2'+3 >> 23으로 출력
+
+'4'/2 >> 2로 출력 (문자는 나눌수 없기에 숫자로 간주되어짐)
