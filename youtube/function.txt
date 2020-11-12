@@ -1,0 +1,122 @@
+1. Function
+함수명은 동사형으로, doSomething 
+e.g. createCard, createPoint, printName
+
+한가지 함수는 한가지 일만
+
+자바스크립트에서 함수는 Object.
+
+2. Parameters
+primative parameters: passed by value >> 메모리에 value가 그대로 저장되있어서
+object parameters: passed by reference  >> 메모리에 value X, reference가 저장되어있음
+
+3. Default parameters (added in ES6)
+function showMsg(msg, from='unknown'){   >>  두번째 parameter를 못받을때 전달할 값 지정 가능
+    console.log(`${msg} by ${from}`);
+}
+showMsg('Hi');
+
+4. Rest parameters (added in ES6)  << ...을 찍으면 parameter들을 배열 형태로 전달함.
+////////
+function printAll(...args) {
+    for (let i of args) {
+        document.write('<br>'+i +'<br/>');
+    }
+}
+
+printAll(1, 2, 3, 4, 5, 6, 7);
+///////
+function printAll(...args) {
+    args.forEach((abc) => {
+        document.write(`${abc}<br>`);
+    })
+}
+printAll(1, 2, 3, 4, 5, 6, 7);
+
+5. Local scope vs Block scope
+    자바스크립트의 스코프
+        밖에서는 안이 보이지 않고
+        안에서만 밖을 볼 수 있다.
+
+6. Return a value
+function sum(a,b){
+    return a+b;
+}
+
+const result = sum(1,2) // 3
+console.log(`sum: ${sum(1,2)}`) //sum: 3
+
+
+7.Early return, Early exit >> 조건이 맞지 않을때는 빨리 함수를 종료하라는 뜻
+
+>>bad
+function abc(user){
+    if(user.point > 10){
+        ~~~
+    } else {
+        return;
+    }
+}
+>>good
+function abc(user){
+    if(user.point <= 10){
+        return;
+    }
+}
+
+<!-- anonymous function -->
+const abc = function(){
+    console.log('abc');
+}
+abc();
+const print = abc;
+print(); // 같은 함수가 출력됨
+
+<!-- named function-->  // 호이스팅이 일어난다
+function acd(){
+    console.log('adc');
+}
+
+
+갈길이 멀었다.
+
+<!-- 2. Callback function -->
+function randomQuiz(answer, printYes, printNo){  //인자와 콜백1, 콜백2
+    if(answer==='love you'){
+        printYes();
+    } else {
+        printNo();
+    }
+}
+<!-- 익명함수 -->
+const printYes = function(){
+    console.log('yes!');
+}
+<!-- 기명함수 -->
+const printNo = function print(){
+    console.log('no!');
+}
+randomQuiz('wrong', printYes, printNo);
+randomQuiz('love you', printYes, printNo);
+
+<!-- recursion(순환, 재귀) -->
+<!-- 콜스택 -->
+
+<!-- arrow function 언제나 익명함수 -->
+const abc = () => {
+
+}
+
+const adc = () => console.log('hasspd');
+{}가 생략되면 return이 필요 X
+{}가 있으면 return 필요
+
+<!-- IIFE: Immediately Invoked Function Expression 
+    : 즉시 실행함수 (변수에 저장할때만 재사용 가능)-->
+(function hello(){
+    console.log('IIFE');
+})()  << 함수를 ()()로 감싸주면 선언과 동시에 실행함
+
+(function($){
+    $('a')
+})(jQuery)
