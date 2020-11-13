@@ -20,7 +20,8 @@ function calculate(command, a, b){
         console.log(a % b);
         break;
         default:
-        console.log('잘못된 명령어 입니다.')
+        // console.log('잘못된 명령어 입니다.')
+            throw Error('unknow command');
     }
 }
 

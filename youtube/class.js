@@ -32,6 +32,7 @@ console.log(ellie.name, ellie.age);
 ellie.speak();
 
 // 2. Getter, Setter 커피머신(user가 잘못 설정해도 내가 잘 바꿔주는것)
+// 지금은 이해 안간다.
 class User {
     constructor(firstName, lastName, age){
         this.firstName = firstName;
@@ -76,3 +77,43 @@ console.log(Article.publisher);
 Article.printPublisher();
 // 어려워......
 
+// 5. Class의 상속
+class Shape{
+    constructor(width, height, color){
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+    Calc(){
+        return this.width * this.height;
+    }
+    Text(){
+        console.log(`이 도형의 색깔은 ${this.color} 입니다.`);
+    }
+}
+
+//Class를 활용한 new Instance 생성
+const Triangle = new Shape(20,20, 'orange');
+console.log(Triangle.width);
+Triangle.Text();
+
+// Class의 상속을 활용한 new Class의 생성
+class Square extends Shape{};
+class Ellipse extends Shape{
+    Calc(){
+        console.log('계산하기시러');
+    }
+    Text(){
+        console.log(`도형색은 알아서 뭐하게?`);
+        // 상속받은 메소드를 사용하기 위한 명령어 super.메소드();
+        super.Text();
+    }
+}
+// new Class에 new Instance를 생성
+const Circle = new Ellipse(10,10,'red');
+Circle.Calc();
+Circle.Text();
+
+
+// 6. Class checking: instanceof;
+console.log(Circle instanceof Ellipse); //true

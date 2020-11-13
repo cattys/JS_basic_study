@@ -43,7 +43,8 @@ Variable types / data type
 
 
 
-1. primative type, single item: number, string, boolean, null, undefined, symbol
+1. primative type(변수 1개당 값 1개) 
+single item: number, string, boolean, null, undefined, symbol
 
 ㄴ 더이상 나눠질수 없는 단위
 
