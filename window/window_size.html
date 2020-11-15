@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,25 +16,33 @@
         }
     </style>
 </head>
+
 <body>
+    <!-- 
+    window.screen => 모니터 크기 (browser크기 조절에 영향 안받음)
+    window.outer => 검색창 등을 포함한 browser window 크기
+    window.inner => 콘솔, 검색창 등을 제외한 스크롤바를 포함한 페이지가 표기되는 browser window 전체
+    documentElement.clientWidth => 스크롤바도 제외한 문서 자체 크기
+     -->
     <div class="tag">
         Window Size
     </div>
     <script>
         const tag = document.querySelector('.tag');
         const updateTag = () => {
-            tag.innerHTML = 
-            `
+            tag.innerHTML =
+                `
             window.screen: ${window.screen.height}, ${window.screen.width}</div><br/>
             window.outer: ${window.outerHeight}, ${window.outerWidth}</div><br/>
             <div>window.inner: ${window.innerHeight}, ${window.innerWidth}</div><br/>
             <div>documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}</div>
             `
         }
-        window.addEventListener('resize', ()=>{
-           updateTag();
+        window.addEventListener('resize', () => {
+            updateTag();
         })
         updateTag();
     </script>
 </body>
+
 </html>
