@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinate</title>
+    <style>
+        body {
+            background-color: black;
+            /* overflow: hidden; -> 스크롤을 못하게함 */
+        }
+
+        div {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            background-color: slateblue;
+        }
+
+        .special {
+            background-color: lightsalmon;
+        }
+
+        aside {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    <div></div>
+    <aside>
+        <button class="scroll-by">scroll-by 100px(y)</button>
+        <button class="scroll-to">scroll-to 100px(y)</button>
+        <button class="scroll-into">Scroll into special</button>
+    </aside>
+    <script>
+        /* Element.getBoundingClientRect(); 
+            >> X와 Y값 (브라우저 왼쪽 상단에서 얼마나 떨어져있는지)
+            top, left // bottom, right(왼쪽상단에서 얼마나 떨어져있는지// css방식과 다름) 
+        */
+        /*
+        Dom rect -> ??
+        client X,Y -> 현재 보고있는 브라우저의 X,Y 값 ??
+        page X,Y -> 문서 제일 처음부터 계산되는 X,Y (안보이는 부분도 계산)
+        */
+        const special = document.querySelector('.special');
+        special.addEventListener('click', (e) => {
+            console.log(e.target);
+            const rect = special.getBoundingClientRect();
+            // 해당 element의 w,h, top, left, right, bottom, x,y 좌표가 나옴
+            console.log(rect);
+            console.log(`e.client: ${e.clientX},${e.clientY}`);
+            // ㄴ해당 화면에서 마우스 클릭된 지점
+            console.log(`e.page: ${e.pageX}, ${e.pageY}`);
+            // ㄴ최상단에서 마우스 클릭된 지점까지
+        })
+        const scrollBy = document.querySelector('.scroll-by');
+        const scrollTo = document.querySelector('.scroll-to');
+        const scrollInto = document.querySelector('.scroll-into');
+
+        scrollBy.addEventListener('click', () => {
+            // window.scrollBy(0, 100);
+            window.scrollBy({top: 100, left: 0, behavior: 'smooth'});
+        });
+        scrollTo.addEventListener('click', () => {
+            window.scroll({top: 100, left: 100, behavior: 'smooth'});
+            });
+        scrollInto.addEventListener('click', () => {
+            const rect = special.getBoundingClientRect();
+
+        //    window.scrollBy({
+        //         top: rect.y,
+        //         left: rect.x,
+        //         behavior: 'smooth'
+        //    }) 
+            // special.scrollIntoView();
+            special.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+            special.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+        });
+    </script>
+</body>
+
+</html>

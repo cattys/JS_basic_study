@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background: black;
+        text-align: center;
+      }
+      button {
+        outline: none;
+        background-color: tomato; 
+        color: white;
+        font-size: 32px;
+        margin: 16px 0;
+        cursor: pointer;
+      }
+      img {
+        margin: 0 auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Find a rabbit 🐇</button>
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img class="rabbit" src="./img/rabbit.png" alt="토끼">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+    <img src="./img/carrot.png" alt="당근">
+
+    <script>
+      const btn = document.querySelector('button');
+      const rabbit = document.querySelector('.rabbit');
+      btn.addEventListener('click', ()=>{
+        // const rabbitCoor = rabbit.getBoundingClientRect();
+        // window.scrollTo(rabbitCoor.x,rabbitCoor.y);
+        rabbit.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
+      })
+    </script>
+  </body>
+</html>
