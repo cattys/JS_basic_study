@@ -1,0 +1,33 @@
+성능 보장 렌더링 순서
+
+critical rendering path
+>> DOM > CSSOM > Render Tree >layout > paint > composition
+
+
+1.html을 브라우저 언어로 바꾸는 construcion 파트
+>> DOM > CSSOM > Render Tree ..
+
+request/response
+loading 
+scripting( dom요소로 변환)
+
+2. 윈도우 위에 표기위해 준비하고 그림을 그리는 operation 파트
+
+>layout > paint > composition
+
+rendering tree(최종적으로 계산된 css 스타일이 포함됨)
+
+layout 
+
+painting 속성값에 따라 레이어 별로 부분부분 쪼개서 계산
+(성능 개선을 위해서 브라우저가 스스로 준비해둠)
+
+composition
+> 미리 준비한 레이어를 순서대로 브라우저에 차곡차곡 올림
+
+dom요소 조작 이벤트에 따라 
+다른 요소 위치에 영향을 주면
+다시 layer부터 위치 계산을 시작하기에
+성능이 나빠진데...
+
+이벤트 결과로 composition만 다시 일어나는게 best1
