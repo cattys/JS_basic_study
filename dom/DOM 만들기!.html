@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <img src="./favicon.png" alt="사진">
+        <h1 id="brand">졸려요</h1>
+        <p>at home</p>
+    </section>
+    <script>
+        const section = document.querySelector('section');
+        const h2 = document.createElement('h2');
+        const p = document.querySelector('p');
+
+        h2.setAttribute('class', 'title');
+        h2.textContent = 'This is a title';
+        // section.appendChild(h2);
+        section.insertBefore(h2,p);
+    </script>
+</body>
+</html>

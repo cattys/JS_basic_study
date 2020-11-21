@@ -1,0 +1,105 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    /* 
+        font-family: 'Gaegu', cursive; 
+        font-weight: 300; 
+        font-weight: 400; 
+        font-weight: 700; 
+    */
+    /* 
+        font-family: 'Nanum Gothic Coding', monospace;
+        font-weight: 400; 
+        font-weight: 700; 
+    */
+}
+body {
+    cursor: default;
+    background: linear-gradient(.25turn, rgba(255,155,157, 0.12),rgba(255,155,157, 0.42), rgba(255,155,157, 1));
+}
+.wrap {
+    background: #fff;
+    width: 350px;
+    height: 600px;
+    overflow-y: auto;
+    margin: 50px auto;
+    box-shadow: 3px 3px 3px rgb(124, 121, 121);
+    text-align: center;
+}
+
+#header {
+    background-color: rgb(255, 138, 128);
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Gaegu', cursive;
+    font-size: 30px;
+}
+
+.list__wrap {
+    max-width: 80%;
+    margin: 30px auto;
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-weight: 400;
+    padding-top: 10px;
+
+}
+
+.list {
+    letter-spacing: 3px;
+    margin-bottom: 55px;
+    display: flex;
+    /* justify-content: space-between; */
+    font-size: 20px;
+    align-items: center;
+}
+
+.list:last-child {
+    margin-bottom: 40px;
+}
+.list__chk--box {
+    font-size: 11px;
+    width: 25px;
+    height: 25px;
+    line-height: 20px;
+    border: 3px solid rgb(255, 138, 128);
+    color: rgb(255, 138, 128);
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.list__chk--box .list__chk{
+    display: none;
+}
+.list__chk--box.on .list__chk{
+    display: inline-block;
+}
+.list__display {
+    margin-right: 25px;
+}
+.list__trash {
+    cursor: pointer;
+    color: #999;
+}
+.list__add {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: rgb(255, 138, 128);
+    margin: 0 auto;
+    color: #fff;
+    cursor: pointer;
+}
+
+.list__trash {
+    width: 30px;
+    height: 30px;
+    /* background: red; */
+    line-height: 30px;
+}

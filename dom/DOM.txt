@@ -30,4 +30,15 @@ dom요소 조작 이벤트에 따라
 다시 layer부터 위치 계산을 시작하기에
 성능이 나빠진데...
 
-이벤트 결과로 composition만 다시 일어나는게 best1
+이벤트 결과로 composite만 다시 일어나는게 best1
+best2 paint > composite
+worst layout > paint > composite
+
+
+will-change: opacity; 나중에 투명도가 바뀔수있어!
+> 처음부터 따로 만들어짐
+
+blink - >chrome
+geeko ->firefox
+webkit -> safari
+edgeHTML -> old MS edge // new -> blink 사용
