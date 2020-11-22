@@ -1,0 +1,4 @@
+e.preventDefault() 
+-> 브라우저에서 기본적으로 발생하는 동작 취소
+ex) <input type='checkbox' /> 에서 더이상 체크가 일어나지 않음
+

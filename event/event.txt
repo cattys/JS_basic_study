@@ -1,0 +1,16 @@
+browser야 click 되면 > event handler 호출해줘 
+
+(클릭 발생) 
+
+브라우저가 event 오브젝트 만들어서 등록한 콜백함수에 전달해줌
+
+이벤트 오브젝트 안에는..
+> 어떤 부분에서 클릭되었는지
+> 어떤 요소가 클릭되었는지 등 다양한 정보가 담겨있음
+
+
+이벤트 핸들러가 될수있는 요소는
+모든 element node이다.
+
+el.addEventListener();
+el.removeEventListener();
